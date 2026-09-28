@@ -32,3 +32,11 @@ variable "oauth2_applications" {
   }))
   default = {}
 }
+
+variable "passkey_login" {
+  description = "Login host that gets the passkey flow, e.g. { domain = \"auth.example.com\" }. null keeps authentik's default login."
+  type = object({
+    domain = string
+  })
+  default = null
+}
