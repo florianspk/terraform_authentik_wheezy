@@ -1,0 +1,29 @@
+groups = ["admins", "users"]
+
+users = {
+  alice = {
+    name   = "Alice"
+    email  = "alice@example.com"
+    groups = ["admins"]
+  }
+}
+
+oauth2_applications = {
+  grafana = {
+    name               = "Grafana"
+    group              = "Observability"
+    icon               = "https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/grafana.png"
+    redirect_uris      = ["https://grafana.example.com/login/generic_oauth"]
+    restrict_to_groups = ["admins"]
+  }
+
+  nextcloud = {
+    name               = "Nextcloud"
+    redirect_uris      = ["https://drive.example.com/apps/user_oidc/code"]
+    restrict_to_groups = ["admins", "users"]
+  }
+}
+
+passkey_login = {
+  domain = "auth.example.com"
+}
